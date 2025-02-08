@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Xadrez.tabuleiro
+namespace tabuleiro
 {
     enum Cor
     {

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Xadrez.Tabuleiro
+namespace tabuleiro
 {
     class Posicao
     {

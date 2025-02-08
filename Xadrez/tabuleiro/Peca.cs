@@ -1,7 +1,6 @@
 ﻿using System;
-using Xadrez.Tabuleiro;
 
-namespace Xadrez.tabuleiro
+namespace tabuleiro
 {
     class Peca
     {
@@ -17,5 +16,6 @@ namespace Xadrez.tabuleiro
             Tab = tab;
             QtdMovimento = 0;
         }
+
     }
 }
