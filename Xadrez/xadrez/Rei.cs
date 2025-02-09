@@ -15,12 +15,12 @@ namespace xadrez
 
         private bool PodeMover(Posicao pos)
         {
-            if (!Tab.PosicaoValida(pos)) return false; // Garante que a posição seja válida antes de acessar
+            if (!Tab.PosicaoValida(pos)) return false; 
             Peca p = Tab.Peca(pos);
             return p == null || p.Cor != Cor;
         }
 
-        public override bool[,] MovimentosPossíveis()
+        public override bool[,] MovimentosPossiveis()
         {
             bool[,] mat = new bool[Tab.Linhas, Tab.Colunas];
             Posicao pos = new Posicao(0, 0);
