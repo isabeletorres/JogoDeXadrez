@@ -93,7 +93,7 @@ namespace xadrez
                 Tab.ColocarPeca(T, origemT);
             }
 
-            // #jogadaespecial roque grande
+
             if (p is Rei && destino.Coluna == origem.Coluna - 2)
             {
                 Posicao origemT = new Posicao(origem.Linha, origem.Coluna - 4);
@@ -132,7 +132,7 @@ namespace xadrez
                 DesfazMovimento(origem, destino, pecaCapturada);
                 throw new TabuleiroException("Você não pode se colocar em xeque!");
             }
-            Peca p = Tab.Peca(destino);
+            
             if (EstaEmXeque(Adversaria(JogadorAtual)))
             {
                 Xeque = true;
@@ -151,6 +151,7 @@ namespace xadrez
                 MudaJogador();
             }
 
+            Peca p = Tab.Peca(destino);
             if (p is Peao && (destino.Linha == origem.Linha - 2 || destino.Linha == origem.Linha + 2))
             {
                 VulneravelEnPassant = p;
@@ -159,8 +160,6 @@ namespace xadrez
             {
                 VulneravelEnPassant = null;
             }
-
-
         }
 
         public void ValidarPosicaoDeOrigem(Posicao pos)

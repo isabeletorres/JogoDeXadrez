@@ -30,18 +30,18 @@ namespace xadrez
         public override bool[,] MovimentosPossiveis()
         {
             bool[,] mat = new bool[Tab.Linhas, Tab.Colunas];
-            int direcao = (Cor == Cor.Branca) ? -1 : 1; // Branco sobe (-1), Preto desce (+1)
+            int direcao = (Cor == Cor.Branca) ? -1 : 1; 
 
             Posicao pos = new Posicao(0, 0);
 
-            // Movimento simples
+
             pos.DefinirValores(Posicao.Linha + direcao, Posicao.Coluna);
             if (Tab.PosicaoValida(pos) && Livre(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
 
-            // Movimento duplo na primeira jogada
+
             pos.DefinirValores(Posicao.Linha + 2 * direcao, Posicao.Coluna);
             Posicao casaIntermediaria = new Posicao(Posicao.Linha + direcao, Posicao.Coluna);
             if (QtdMovimentos == 0 && Tab.PosicaoValida(pos) && Livre(pos) && Livre(casaIntermediaria))
@@ -49,21 +49,21 @@ namespace xadrez
                 mat[pos.Linha, pos.Coluna] = true;
             }
 
-            // Captura diagonal esquerda
+    
             pos.DefinirValores(Posicao.Linha + direcao, Posicao.Coluna - 1);
             if (Tab.PosicaoValida(pos) && ExisteInimigo(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
 
-            // Captura diagonal direita
+            
             pos.DefinirValores(Posicao.Linha + direcao, Posicao.Coluna + 1);
             if (Tab.PosicaoValida(pos) && ExisteInimigo(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
 
-            // En Passant
+            
             int linhaEnPassant = (Cor == Cor.Branca) ? 3 : 4;
             if (Posicao.Linha == linhaEnPassant)
             {
