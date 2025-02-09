@@ -25,7 +25,7 @@ namespace tabuleiro
             return _pecas[pos.Linha, pos.Coluna];
         }
 
-        public bool ExistePeca (Posicao pos)
+        public bool ExistePeca(Posicao pos)
         {
             ValidarPosicao(pos);
             return _pecas[pos.Linha, pos.Coluna] != null;
@@ -48,25 +48,16 @@ namespace tabuleiro
             {
                 return null;
             }
-            else
-            {
-                Peca aux = _pecas[pos.Linha, pos.Coluna];
-                aux.Posicao = null;
-                _pecas[pos.Linha, pos.Coluna] = null;
-                return aux;
-            }
+
+            Peca aux = _pecas[pos.Linha, pos.Coluna];
+            aux.Posicao = null;
+            _pecas[pos.Linha, pos.Coluna] = null;
+            return aux;
         }
 
         public bool PosicaoValida(Posicao pos)
         {
-            if (pos.Linha < 0 || pos.Linha >= Linhas || pos.Linha < 0 || pos.Linha > Colunas)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return pos.Linha >= 0 && pos.Linha < Linhas && pos.Coluna >= 0 && pos.Coluna < Colunas;
         }
 
         public void ValidarPosicao(Posicao pos)
